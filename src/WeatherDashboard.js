@@ -16,8 +16,8 @@ const WeatherDashboard = () => {
   const [searchData, setSearchData] = useState("New Delhi");
   const [selectedWeather, setSelectedWeather] = useState(null);
   //   const apiKey = "49e1c60be364c11bb302518ab761f9ec";
-  const apiKey = process.env.VITE_OPEN_WEATHER_API_KEY;
-  const apiUrl = process.env.VITE_OPEN_WEATHER_API_URL;
+  const apiKey = process.env.REACT_APP_OPEN_WEATHER_API_KEY;
+  const apiUrl = process.env.REACT_APP_OPEN_WEATHER_API_URL;
 
   const getCoordinates = async (city) => {
     if (!city) return;
