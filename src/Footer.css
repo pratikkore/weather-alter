@@ -1,0 +1,42 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;300;400;500;600;700;800;900&family=Rubik:wght@700&display=swap'); */
+
+.footer-section {
+  /* background-color: #ce2127; */
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(71, 80, 188, 1) 0%,
+    rgba(65, 181, 204, 1) 100%
+  );
+  padding: 15px;
+  color: aliceblue;
+  /* font-family: 'Roboto Slab', serif; */
+  /* font-family: 'Rubik', sans-serif; */
+  /* font-family: 'Roboto Slab', serif; */
+}
+
+/* .footer_section p {
+    margin: 0;
+    text-align: center;
+    color: #292929;
+  } */
+
+/* .footer_section a {
+    color: #292929;
+  }
+  
+  .info_social {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto 20px auto;
+  }
+  
+  .info_social img {
+    width: 35px;
+    margin-left: 8px;
+  }
+  
+  .info_social img:hover {
+    box-shadow: -1px 9px 40px -12px rgba(8, 8, 8, 0.75);
+    transform: scale(1.1);
+  } */
