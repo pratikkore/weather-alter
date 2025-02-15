@@ -15,14 +15,16 @@ const WeatherDashboard = () => {
   const [weatherData, setWeatherData] = useState(null);
   const [searchData, setSearchData] = useState("New Delhi");
   const [selectedWeather, setSelectedWeather] = useState(null);
-  const apiKey = "49e1c60be364c11bb302518ab761f9ec";
+  //   const apiKey = "49e1c60be364c11bb302518ab761f9ec";
+  const apiKey = process.env.VITE_OPEN_WEATHER_API_KEY;
+  const apiUrl = process.env.VITE_OPEN_WEATHER_API_URL;
 
   const getCoordinates = async (city) => {
     if (!city) return;
 
     try {
       const response = await fetch(
-        `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${apiKey}`
+        `${apiUrl}geo/1.0/direct?q=${city}&limit=1&appid=${apiKey}`
       );
       const data = await response.json();
 
@@ -41,7 +43,7 @@ const WeatherDashboard = () => {
 
     try {
       const response = await fetch(
-        `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`
+        `${apiUrl}data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`
       );
       const data = await response.json();
       setWeatherData(data);
@@ -51,6 +53,7 @@ const WeatherDashboard = () => {
   };
 
   useEffect(() => {
+    console.log(import.meta.env, "import.meta.env", process.env);
     getCoordinates(searchData);
   }, [searchData]);
 
