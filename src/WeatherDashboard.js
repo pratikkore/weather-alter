@@ -122,45 +122,52 @@ const WeatherDashboard = () => {
             {weatherData.list.slice(0, 5).map((item, index) => (
               <Col md={4} key={index}>
                 <Card
-                  className="shadow-lg border-0 rounded-4 text-center p-3"
+                  className="shadow-lg border-0 text-center p-4"
                   style={{
-                    background: "rgba(255, 255, 255, 0.1)",
+                    background:
+                      "linear-gradient(145deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05))",
                     backdropFilter: "blur(10px)",
-                    borderRadius: "16px",
+                    borderRadius: "20px",
                     color: "#fff",
-                    transition: "transform 0.3s ease-in-out",
+                    transition:
+                      "transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out",
                     cursor: "pointer",
+                    border: "1px solid rgba(255, 255, 255, 0.1)",
                   }}
-                  onMouseEnter={(e) =>
-                    (e.currentTarget.style.transform = "scale(1.05)")
-                  }
-                  onMouseLeave={(e) =>
-                    (e.currentTarget.style.transform = "scale(1)")
-                  }
-                  onClick={() => handleCardClick(item)}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = "scale(1.05)";
+                    e.currentTarget.style.boxShadow =
+                      "0 8px 32px rgba(0, 0, 0, 0.2)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = "scale(1)";
+                    e.currentTarget.style.boxShadow =
+                      "0 4px 16px rgba(0, 0, 0, 0.1)";
+                  }}
                 >
                   <Card.Body>
                     <i
-                      className={`bi ${getWeatherIcon(
-                        item.weather[0].main
-                      )} display-3 text-info`}
+                      className={`bi bi-cloud-sun display-3 text-info mb-3`}
                     ></i>
-                    <Card.Title className="fw-bold fs-4">
+                    <Card.Title className="fw-bold fs-4 mb-3">
                       {item.weather[0].main}
                     </Card.Title>
-                    <h2 className="fw-bold">{item.main.temp}°C</h2>
-                    <p className="text-light opacity-75">
+                    <h2 className="fw-bold mb-3">{item.main.temp}°C</h2>
+                    <p className="text-light opacity-75 mb-3">
                       {item.weather[0].description}
                     </p>
-                    <p className="fw-semibold">
-                      📅 {new Date(item.dt * 1000).toLocaleDateString()} | 🕒{" "}
-                      {new Date(item.dt * 1000).toLocaleDateString("en-US", {
-                        weekday: "long",
-                      })}
-                    </p>
-                    <p className="text-light">
-                      Overview: {item.weather[0].description}
-                    </p>
+                    <div className="d-flex justify-content-between align-items-center mt-4">
+                      <p className="fw-semibold mb-0">
+                        📅 {new Date(item.dt * 1000).toLocaleDateString()}
+                      </p>
+                      <p className="fw-semibold mb-0">
+                        🕒{" "}
+                        {new Date(item.dt * 1000).toLocaleTimeString([], {
+                          hour: "2-digit",
+                          minute: "2-digit",
+                        })}
+                      </p>
+                    </div>
                   </Card.Body>
                 </Card>
               </Col>
